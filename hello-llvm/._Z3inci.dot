@@ -1,0 +1,5 @@
+digraph "CFG for '_Z3inci' function" {
+	label="CFG for '_Z3inci' function";
+
+	Node0x1a889d0 [shape=record,label="{entry:\l  %A.addr = alloca i32, align 4\l  store i32 %A, i32* %A.addr, align 4\l  %0 = load i32, i32* %A.addr, align 4\l  %inc = add nsw i32 %0, 1\l  store i32 %inc, i32* %A.addr, align 4\l  ret i32 %inc\l}"];
+}

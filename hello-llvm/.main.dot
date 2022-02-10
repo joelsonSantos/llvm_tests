@@ -1,0 +1,14 @@
+digraph "CFG for 'main' function" {
+	label="CFG for 'main' function";
+
+	Node0x1a88d50 [shape=record,label="{entry:\l  %retval = alloca i32, align 4\l  %I = alloca i32, align 4\l  %J = alloca i32, align 4\l  %K = alloca i32, align 4\l  %Idx = alloca i32, align 4\l  store i32 0, i32* %retval, align 4\l  store i32 42, i32* %I, align 4\l  store i32 13, i32* %J, align 4\l  %0 = load i32, i32* %I, align 4\l  %1 = load i32, i32* %J, align 4\l  %call = call i32 @_Z3addii(i32 %0, i32 %1)\l  store i32 %call, i32* %K, align 4\l  %2 = load i32, i32* %K, align 4\l  %call1 = call i32 @_Z3inci(i32 %2)\l  store i32 %call1, i32* %K, align 4\l  store i32 0, i32* %Idx, align 4\l  br label %for.cond\l}"];
+	Node0x1a88d50 -> Node0x1a89800;
+	Node0x1a89800 [shape=record,label="{for.cond:                                         \l  %3 = load i32, i32* %Idx, align 4\l  %cmp = icmp slt i32 %3, 100\l  br i1 %cmp, label %for.body, label %for.end\l|{<s0>T|<s1>F}}"];
+	Node0x1a89800:s0 -> Node0x1a899e0;
+	Node0x1a89800:s1 -> Node0x1a89ac0;
+	Node0x1a899e0 [shape=record,label="{for.body:                                         \l  %4 = load i32, i32* %K, align 4\l  %inc = add nsw i32 %4, 1\l  store i32 %inc, i32* %K, align 4\l  br label %for.inc\l}"];
+	Node0x1a899e0 -> Node0x1a89e90;
+	Node0x1a89e90 [shape=record,label="{for.inc:                                          \l  %5 = load i32, i32* %Idx, align 4\l  %inc2 = add nsw i32 %5, 1\l  store i32 %inc2, i32* %Idx, align 4\l  br label %for.cond\l}"];
+	Node0x1a89e90 -> Node0x1a89800;
+	Node0x1a89ac0 [shape=record,label="{for.end:                                          \l  %6 = load i32 (i32)*, i32 (i32)** @Fptr, align 8\l  %7 = load i32, i32* %K, align 4\l  %call3 = call i32 %6(i32 %7)\l  store i32 %call3, i32* %K, align 4\l  %8 = load i32, i32* %K, align 4\l  ret i32 %8\l}"];
+}
